@@ -29,6 +29,13 @@ nosetests.xml
 # Translations
 *.mo
 
+# Virtualenv dir
+env
+
+*~
+
+# Database file
+schema.db
 # Mr Developer
 .mr.developer.cfg
 .project

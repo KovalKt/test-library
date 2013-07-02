@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+{% block body %}
+<h3>Add new book </h3>
+    <form class="form-horizontal" action="{{url_for('add_book', author_id=author_id)}}" method="POST">
+        <div class="control-group">
+            {{ form.csrf_token }}
+            <label class="control-label">{{ form.name.label }}</label>
+            <div class="controls">
+               {{ form.name() }}
+               {% if form.name.errors %}
+                <div class="alert alert-error">
+                    <button class="close" data-dismiss="alert" type="button">×</button>
+                    <strong>Error! </strong>{% for error in form.name.errors %}{{error}} {% endfor %}.
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" >{{ form.year.label }}</label>
+            <div class="controls">
+               {{ form.year() }}
+               {% if form.year.errors %}
+                <div class="alert alert-error">
+                    <button class="close" data-dismiss="alert" type="button">×</button>
+                    <strong>Error! </strong>{% for error in form.year.errors %}{{error}} {% endfor %}.
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="controls">
+                <button type="submit" class="btn">Submit</button>
+        </div>
+    </form>
+{% endblock %}

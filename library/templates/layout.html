@@ -1,0 +1,33 @@
+<!doctype html>
+<head>
+    <title> Library_beta</title>
+    <link rel=stylesheet media="screen" type="text/css" href="{{url_for   ('static',filename='bootstrap.css')}}">
+</head>
+<body>
+    <h1> <em>Library by Katya </em> </h1>
+    <script src="{{url_for('static', filename='jquery.min.js')}}"></script>
+    <script src="{{url_for('static', filename='bootstrap.min.js')}}"></script>
+    <div> 
+        <form class="form-search" action="{{url_for('author_list')}}" method="POST">
+            <label>Find author </label>
+            <input type="text" class="input-medium search-query" name='search_query'>
+            <button type="submit" class="btn">Search</button>
+        </form>
+    </div>
+    <blockquote class="pull-right">
+        <p>Книга есть альфа и омега всякого знания, начало начал каждой науки</p>
+        <small> Цвейг С. </small>
+    </blockquote>
+    <ul class="nav nav-tabs">
+        <li class={{"active" if request.endpoint == 'author_list' else ""}}>
+            <a href="{{url_for('author_list')}}">Authors</a>
+        </li>
+        <li class={{"active" if request.endpoint == 'book_list' else ""}}>
+            <a href="{{url_for('book_list')}}">Books</a>
+        </li>
+        <li class={{"active" if request.endpoint == 'add_author' else ""}}>
+            <a href="{{url_for('add_author')}}">Add new author</a>
+        </li>
+    </ul>
+    {% block body %}{% endblock %}
+</body>

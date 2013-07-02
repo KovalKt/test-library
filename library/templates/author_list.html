@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block body %}
+    <div>
+        <ul>
+            {% for author in authors %}
+            <li>
+                <a href="{{url_for('author_info', id=author.id)}}" >{{author.first_name}} </a> 
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+{% endblock %}
+
